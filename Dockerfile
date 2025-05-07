@@ -8,6 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # Install system dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+        zip \
         xvfb \
         xauth \
         file \
@@ -36,9 +37,9 @@ RUN apt-get update && \
 # Upgrade pip and install core Python deps
 RUN pip install --upgrade pip
 
-# # Optional: Preinstall Python packages
-# COPY requirements.txt .
-# RUN pip install --cache-dir /tmp/pip_cache opencv-python-headless && \
-#     pip install --cache-dir /tmp/pip_cache -r requirements.txt
+# # Preinstall common packages (optional)
+COPY requirements.txt .
+RUN pip install --cache-dir /tmp/pip_cache opencv-python-headless && \
+    pip install --cache-dir /tmp/pip_cache -r requirements.txt
 
 WORKDIR /app

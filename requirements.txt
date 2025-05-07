@@ -1,0 +1,9 @@
+cryptography==42.0.8
+legacy-cgi==2.6.3
+Cheetah3==3.2.6.post1
+paramiko<3.4
+PySide6==6.8.3
+scp==0.14.4
+# openpyxl==2.6.4
+numpy==1.23.5
+xlrd==1.2.0
